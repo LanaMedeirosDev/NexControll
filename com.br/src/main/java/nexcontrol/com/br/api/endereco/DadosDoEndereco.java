@@ -3,7 +3,7 @@ package nexcontrol.com.br.api.endereco;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 
-public record dadosDoEndereco(
+public record DadosDoEndereco(
 
         @NotBlank
         String logradouro,
@@ -25,4 +25,14 @@ public record dadosDoEndereco(
         String numero,
 
         String complemento) {
+
+    public DadosDoEndereco(Endereco endereco) {
+        this(endereco.getLogradouro(),
+                endereco.getBairro(),
+                endereco.getCep(),
+                endereco.getCidade(),
+                endereco.getUf(),
+                endereco.getNumero(),
+                endereco.getComplemento());
+    }
 }

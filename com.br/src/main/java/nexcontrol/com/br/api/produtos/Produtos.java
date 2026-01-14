@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 
 @Table(name = "produtos")
 @Entity(name = "Produto")
-@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -38,7 +37,7 @@ public class Produtos {
     @Column(name = "codigoDeBarras")
     private String codigoDeBarras;
 
-    @Column(name = "cfopPreferencial")
+    @Column(name = "cfopPreferencial", length = 6)
     private String cfopPreferencial;
 
     @Column(name = "tipoDeCadastroProduto")
@@ -67,12 +66,18 @@ public class Produtos {
     public String getCodigoSku(){
         return codigoSku;
     }
-    public Long geiIdProduto(){
+    public String getCfopPreferencial(){
+        return cfopPreferencial;
+    }
+    public String getCodigoDeBarras(){
+        return codigoDeBarras;
+    }
+
+    public Long getIdProduto(){
         return id;
     }
 
     private boolean ativoProduto;
-
 
     public Produtos(DadosCadastroProdutos dados) {
         this.nomeDoProduto = dados.nomeDoProduto();
@@ -84,6 +89,7 @@ public class Produtos {
         this.codigoSku = dados.codigoSku();
         this.codigoDeBarras = dados.codigoDeBarras();
         this.cfopPreferencial = dados.cfopPreferencial();
+        this.ativoProduto = true;
     }
 
     public void atualizarInformacoes(@Valid DadosAtualizacaoProduto dados) {

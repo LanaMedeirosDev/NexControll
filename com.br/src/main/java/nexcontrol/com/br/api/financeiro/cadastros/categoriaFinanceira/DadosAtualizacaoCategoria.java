@@ -1,4 +1,10 @@
-package nexcontrol.com.br.api.financeiro.cadastros.categoriafinanceira;
+package nexcontrol.com.br.api.financeiro.cadastros.categoriaFinanceira;
 
-public record DadosAtualizacaoCategoria() {
+import jakarta.validation.constraints.NotNull;
+
+public record DadosAtualizacaoCategoria(
+        @NotNull
+        Long id,
+        String nomeCategoria,
+        String nomeSubCategoria) {
 }

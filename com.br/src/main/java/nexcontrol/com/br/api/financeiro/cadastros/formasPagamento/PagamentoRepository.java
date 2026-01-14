@@ -1,4 +1,9 @@
 package nexcontrol.com.br.api.financeiro.cadastros.formasPagamento;
 
-public interface PagamentoRepository {
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PagamentoRepository extends JpaRepository<Pagamento, Long> {
+    Page<Pagamento> findAllByAtivoPagamentoTrue(Pageable paginacao);
 }

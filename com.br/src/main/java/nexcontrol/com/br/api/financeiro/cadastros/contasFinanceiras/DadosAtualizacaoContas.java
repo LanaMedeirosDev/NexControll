@@ -1,4 +1,9 @@
 package nexcontrol.com.br.api.financeiro.cadastros.contasFinanceiras;
 
-public record DadosAtualizacaoContas() {
+import jakarta.validation.constraints.NotNull;
+
+public record DadosAtualizacaoContas(
+        @NotNull
+        Long idConta,
+        String nomeConta) {
 }

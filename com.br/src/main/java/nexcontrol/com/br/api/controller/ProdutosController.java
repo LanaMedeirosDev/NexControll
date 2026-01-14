@@ -1,19 +1,19 @@
 package nexcontrol.com.br.api.controller;
 
 import jakarta.validation.Valid;
-import nexcontrol.com.br.api.clientes.Clientes;
-import nexcontrol.com.br.api.clientes.DadosAtualizacaoCliente;
-import nexcontrol.com.br.api.clientes.DadosCadastroCliente;
 import nexcontrol.com.br.api.produtos.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("/produtos")
-@CrossOrigin(origins = "*") // Permite que o seu Front-end acesse a API
+@CrossOrigin(origins = "*") // Permite que o Front-end acesse a API
 public class ProdutosController {
 
     @Autowired
@@ -21,26 +21,35 @@ public class ProdutosController {
 
     @PostMapping
     @Transactional
-    public void cadastrar(@RequestBody @Valid DadosCadastroProdutos dados) {
-        repository.save(new Produtos(dados));
+    public ResponseEntity<?> cadastrar(@RequestBody @Valid DadosCadastroProdutos dados, UriComponentsBuilder uriBuilder) {
+        var produtos = new Produtos(dados);
+        repository.save(produtos);
+
+        var uri = uriBuilder.path("/produtos/{id}").buildAndExpand(produtos.getIdProduto()).toUri();
+        return ResponseEntity.created(uri).body(produtos);
     }
 
     @GetMapping
-    public Page<DadosListagemProduto> listar(Pageable paginacao) {
-        return repository.findByAtivoProdutoTrue(paginacao).map(DadosListagemProduto::new);
+    public ResponseEntity<Page<DadosListagemProduto>> listar(
+            @PageableDefault(size = 10, sort = {"nomeDoProduto"}) Pageable paginacao) {
+
+        var page = repository.findByAtivoProdutoTrue(paginacao).map(DadosListagemProduto::new);
+        return ResponseEntity.ok(page);
     }
 
     @PutMapping
     @Transactional
-    public void atualizar(@RequestBody @Valid DadosAtualizacaoProduto dados){
+    public ResponseEntity<?> atualizar(@RequestBody @Valid DadosAtualizacaoProduto dados) {
         var produtos = repository.getReferenceById(dados.id());
         produtos.atualizarInformacoes(dados);
+        return ResponseEntity.ok(new DadosDetalhamentoProduto(produtos));
     }
 
     @DeleteMapping("/{id}")
     @Transactional
-    public void excluir(@PathVariable Long id){
+    public ResponseEntity<?> excluir(@PathVariable Long id) {
         var produtos = repository.getReferenceById(id);
         produtos.excluir();
+        return ResponseEntity.noContent().build(); // Alterado para 204, mais correto que notFound()
     }
 }

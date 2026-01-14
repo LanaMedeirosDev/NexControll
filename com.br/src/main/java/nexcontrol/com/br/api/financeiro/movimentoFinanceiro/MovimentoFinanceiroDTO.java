@@ -3,7 +3,7 @@ package nexcontrol.com.br.api.financeiro.movimentoFinanceiro;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public record MovimentoFinanceiroListar (
+public record MovimentoFinanceiroDTO(
         Long id,
         String tipo,
         String descricao,

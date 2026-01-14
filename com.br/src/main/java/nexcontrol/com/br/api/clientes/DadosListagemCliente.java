@@ -5,6 +5,9 @@ public record DadosListagemCliente(
         String nome,
         String cpfCnpj,
         ClienteFornecedor tipoDeCadastro,
+        String telefone,
+        String ieRg,
+        String celular,
         Long id
 ) {
     public DadosListagemCliente(Clientes cliente) {
@@ -12,7 +15,10 @@ public record DadosListagemCliente(
                 cliente.getNome(),
                 cliente.getCpfCnpj(),
                 cliente.getTipoDeCadastro(),
-                cliente.geiId()
+                cliente.getTelefone(),
+                cliente.getIeRg(),
+                cliente.getCelular(),
+                cliente.getId()
         );
     }
 }

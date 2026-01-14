@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import nexcontrol.com.br.api.endereco.Endereco;
+import nexcontrol.com.br.api.endereco.DadosDoEndereco;
 
 @Table(name = "clientes")
 @Entity(name = "Cliente")
@@ -46,7 +47,21 @@ public class Clientes {
     public ClienteFornecedor getTipoDeCadastro(){
         return tipoDeCadastro;
     }
-    public Long geiId(){
+    public String getIeRg(){
+        return ieRg;
+    }
+    public String getTelefone(){
+        return telefone;
+    }
+    public String getCelular(){
+        return celular;
+    }
+    //Para criar o Getter de endereço foi necesário criar os Getter individuais de cada campo do endereço e depois criar um construtor com os getters individuais que retornam os dados do endereço na API
+    public DadosDoEndereco getDadosDoEndereco() {
+        return endereco == null ? null : new DadosDoEndereco(endereco);
+    }
+
+    public Long getId(){
         return id;
     }
 
@@ -65,6 +80,7 @@ public class Clientes {
         this.celular = dados.celular();
         this.tipoDeCadastro = dados.tipoDeCadastro();
         this.endereco = new Endereco(dados.endereco());
+        this.ativo = true;
     }
 
     //Os IF permitem que o usuário modifique o campo que ele quiser, mas se ele deixar de modificar algum o cadastro ele vai se manter da mesma forma que estava

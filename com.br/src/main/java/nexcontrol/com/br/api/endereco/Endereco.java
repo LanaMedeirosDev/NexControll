@@ -2,11 +2,9 @@ package nexcontrol.com.br.api.endereco;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Embeddable
-@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Endereco {
@@ -18,7 +16,7 @@ public class Endereco {
     private String numero;
     private String complemento;
 
-    public Endereco(dadosDoEndereco dados) {
+    public Endereco(DadosDoEndereco dados) {
        this.logradouro = dados.logradouro();
        this.bairro = dados.bairro();
        this.cep = dados.cep();
@@ -28,7 +26,29 @@ public class Endereco {
        this.complemento = dados.complemento();
     }
 
-    public void atualizarInformacoes(dadosDoEndereco dados) {
+    public String getLogradouro(){
+        return logradouro;
+    }
+    public String getBairro(){
+        return bairro;
+    }
+    public String getCep(){
+        return cep;
+    }
+    public String getCidade(){
+        return cidade;
+    }
+    public String getUf(){
+        return uf;
+    }
+    public String getNumero(){
+        return numero;
+    }
+    public String getComplemento(){
+        return complemento;
+    }
+
+    public void atualizarInformacoes(DadosDoEndereco dados) {
         if (dados.logradouro() != null) {
             this.logradouro = dados.logradouro();
         }

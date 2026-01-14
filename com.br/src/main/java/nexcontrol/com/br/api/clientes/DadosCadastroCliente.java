@@ -4,7 +4,7 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
-import nexcontrol.com.br.api.endereco.dadosDoEndereco;
+import nexcontrol.com.br.api.endereco.DadosDoEndereco;
 
 //Criando as Strings para o cadastro do cliente
 public record DadosCadastroCliente(
@@ -28,5 +28,5 @@ public record DadosCadastroCliente(
 
         @NotNull
         @Valid
-        dadosDoEndereco endereco ) {
+        DadosDoEndereco endereco ) {
 }

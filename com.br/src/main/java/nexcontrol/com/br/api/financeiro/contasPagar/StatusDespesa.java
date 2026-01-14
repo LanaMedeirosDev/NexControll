@@ -1,6 +1,6 @@
 package nexcontrol.com.br.api.financeiro.contasPagar;
 
-public enum StatusDespesas {
+public enum StatusDespesa {
     PREVISTA,
     PAGA,
     ATRASADA;

@@ -1,4 +1,12 @@
-package nexcontrol.com.br.api.financeiro.cadastros.categoriafinanceira;
+package nexcontrol.com.br.api.financeiro.cadastros.categoriaFinanceira;
 
-public record DadosCadastroCategoria() {
+import jakarta.validation.constraints.NotBlank;
+
+public record DadosCadastroCategoria(
+
+        @NotBlank
+        String nomeCategoria,
+
+        @NotBlank
+        String nomeSubCategoria) {
 }
