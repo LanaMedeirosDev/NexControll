@@ -4,7 +4,13 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import nexcontrol.com.br.api.clientes.Clientes;
+import nexcontrol.com.br.api.clientes.UsuarioCliente;
 import nexcontrol.com.br.api.enderecoUsuario.EnderecoUsuario;
+import nexcontrol.com.br.api.produtos.Produtos;
+import nexcontrol.com.br.api.produtos.UsuarioProduto;
+
+import java.util.List;
 
 @Table(name = "usuarios")
 @Entity(name = "Usuario")
@@ -16,6 +22,13 @@ public class Usuarios {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<UsuarioCliente> clientes;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<UsuarioProduto> produtos;
+
     private String nomeUsuario;
 
     @Column(name = "email")

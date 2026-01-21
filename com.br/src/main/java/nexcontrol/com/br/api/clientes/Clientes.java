@@ -7,6 +7,9 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import nexcontrol.com.br.api.endereco.Endereco;
 import nexcontrol.com.br.api.endereco.DadosDoEndereco;
+import nexcontrol.com.br.api.usuario.Usuarios;
+
+import java.util.List;
 
 @Table(name = "clientes")
 @Entity(name = "Cliente")
@@ -19,6 +22,15 @@ public class Clientes {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    //Permite vinculação N:N de cliente que pode aparecer em um ou vários usuários, porém não é o ideal para que cada um deles possa armazenar seu próprio preço, status etc
+    //@ManyToMany(mappedBy = "clientes")
+    //private List<Usuarios> usuarios;
+
+    //Relação N:N que permite que os cadastros se repitam mas que cada informação seja personalizável para cada usuário
+    @OneToMany(mappedBy = "cliente")
+    private List<UsuarioCliente> usuarios;
+
     private String nome;
 
     @Column(name = "cpfCnpj")
@@ -56,6 +68,7 @@ public class Clientes {
     public String getCelular(){
         return celular;
     }
+
     //Para criar o Getter de endereço foi necesário criar os Getter individuais de cada campo do endereço e depois criar um construtor com os getters individuais que retornam os dados do endereço na API
     public DadosDoEndereco getDadosDoEndereco() {
         return endereco == null ? null : new DadosDoEndereco(endereco);
@@ -83,7 +96,7 @@ public class Clientes {
         this.ativo = true;
     }
 
-    //Os IF permitem que o usuário modifique o campo que ele quiser, mas se ele deixar de modificar algum o cadastro ele vai se manter da mesma forma que estava
+    //Os IFs permitem que o usuário modifique o campo que ele quiser, mas se ele deixar de modificar algum o cadastro ele vai se manter da mesma forma que estava
     public void atualizarInformacoes(@Valid DadosAtualizacaoCliente dados) {
         if (dados.nome() != null) {
             this.nome = dados.nome();

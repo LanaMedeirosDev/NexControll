@@ -6,6 +6,10 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import nexcontrol.com.br.api.usuario.Usuarios;
+
+import java.math.BigDecimal;
+import java.util.List;
 
 @Table(name = "produtos")
 @Entity(name = "Produto")
@@ -17,16 +21,20 @@ public class Produtos {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @OneToMany(mappedBy = "produto")
+    private List<UsuarioProduto> usuarios;
+
     private String nomeDoProduto;
 
     @Column(name = "ncm")
     private String ncm;
 
     @Column(name = "valorDeVenda")
-    private String valorDeVenda;
+    private BigDecimal valorDeVenda;
 
     @Column(name = "valorDeCusto")
-    private String valorDeCusto;
+    private BigDecimal valorDeCusto;
 
     @Column(name = "unidadeDeMedida")
     private String unidadeDeMedida;
