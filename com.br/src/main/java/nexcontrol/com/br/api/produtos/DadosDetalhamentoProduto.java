@@ -2,12 +2,14 @@ package nexcontrol.com.br.api.produtos;
 
 import nexcontrol.com.br.api.clientes.Clientes;
 
+import java.math.BigDecimal;
+
 public record DadosDetalhamentoProduto(
         Long id,
         String nomeDoProduto,
         String ncm,
-        String valorDeVenda,
-        String valorDeCusto,
+        BigDecimal valorDeVenda,
+        BigDecimal valorDeCusto,
         String unidadeDeMedida,
         ProdutoServico tipoDeCadastroProduto,
         String codigoSku,

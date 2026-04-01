@@ -1,0 +1,191 @@
+/* ----- movimento.css ----- */
+
+.inline-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
+}
+
+.inline-form {
+    display: flex;
+    align-items: flex-end; /* Alinha o botão na base dos campos */
+    gap: 1.25rem;
+    width: 100%;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.flex-fill {
+    flex-grow: 1;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.inline-form input {
+    background-color: var(--bg-card); /* Fundo escuro */
+    border: 1px solid var(--accent-color); /* Borda roxa padrão */
+    color: var(--text-main); /* Texto branco */
+    padding: 0 1rem;
+    height: 42px; /* Mesma altura para input, select e button */
+    border-radius: 12px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all var(--transition-speed) ease;
+}
+
+.inline-form input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    opacity: 0.6;
+    cursor: pointer;
+}
+.inline-form input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+}
+
+.inline-form input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.inline-form input:focus {
+    border-color: var(--accent-alt);
+    box-shadow: 0 0 0 3px rgba(200, 130, 248, 0.25);
+}
+
+.form-button-container {
+    padding-bottom: 0;
+    display: flex;
+    align-items: flex-end;
+}
+
+.btn-filtrar {
+    background-color: var(--accent-color); /* Roxo */
+    color: white; 
+    border: none;
+    padding: 0 1.75rem;
+    height: 42px; 
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-filtrar:hover {
+    background-color: #d195fb; /* Roxo mais claro */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(200, 130, 248, 0.3);
+}
+
+.btn-filtrar:disabled {
+    background-color: rgba(200, 130, 248, 0.6);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Badges de Tipo Visual */
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.badge.receita {
+    background-color: rgba(16, 185, 129, 0.15);
+    color: #10b981;
+}
+.badge.despesa {
+    background-color: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+}
+
+/* Valor text colors */
+.valor-receita {
+    color: #10b981;
+    font-weight: 600;
+}
+.valor-despesa {
+    color: #ef4444;
+    font-weight: 600;
+}
+
+/* Tabela (Dark Mode theme) */
+.table-card {
+    padding: 0;
+    overflow: hidden;
+    margin-top: 1rem;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--text-main);
+}
+
+.data-table th, .data-table td {
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(139, 138, 155, 0.15); /* Leve contraste */
+}
+
+.data-table th {
+    background-color: rgba(30, 28, 42, 0.7);
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.data-table tbody tr {
+    transition: background-color 0.2s;
+}
+
+.data-table tbody tr:hover {
+    background-color: rgba(30, 28, 42, 0.5);
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+/* Estados de Carregamento e Erro */
+.loading-state, .error-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 3rem;
+    color: var(--text-muted);
+}
+
+.error-state {
+    color: #ef4444;
+}
+
+.spin-icon {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexControll - Contas Financeiras</title>
+    <!-- Fontes do Google (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- CSS Unificado (Sidebar + Dashboard Base) -->
+    <link rel="stylesheet" href="css/dashboard.css">
+    <!-- CSS Específico -->
+    <link rel="stylesheet" href="css/conta-financeira.css">
+    <!-- Biblioteca Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="app-container">
+        
+        <!-- SIDEBAR (Menu Lateral) -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-icon"></div>
+                <h1 class="logo-text">NexControll</h1>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul class="menu-list" id="main-menu">
+                    <!-- 1. Dashboard -->
+                    <li class="menu-item">
+                        <a href="dashboard.html" class="menu-link" data-page="dashboard">
+                            <i data-lucide="layout-dashboard"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+
+                    <!-- 2. Cadastros -->
+                    <li class="menu-item has-submenu">
+                        <a href="#" class="menu-link submenu-toggle">
+                            <i data-lucide="clipboard-list"></i>
+                            <span>Cadastros</span>
+                            <i data-lucide="chevron-down" class="chevron"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li class="submenu-item"><a href="clientes.html" class="submenu-link" data-page="cliente-fornecedor">Cliente e Fornecedor</a></li>
+                            <li class="submenu-item"><a href="produtos.html" class="submenu-link" data-page="produtos">Produtos</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- 3. Estoque -->
+                    <li class="menu-item has-submenu">
+                        <a href="#" class="menu-link submenu-toggle">
+                            <i data-lucide="box"></i>
+                            <span>Estoque</span>
+                            <i data-lucide="chevron-down" class="chevron"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li class="submenu-item"><a href="#compras" class="submenu-link" data-page="compras">Compras</a></li>
+                            <li class="submenu-item"><a href="#inventario" class="submenu-link" data-page="inventario">Inventário de Estoque</a></li>
+                            <li class="submenu-item"><a href="#producao" class="submenu-link" data-page="producao">Produção de Item</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- 4. Vendas -->
+                    <li class="menu-item has-submenu">
+                        <a href="#" class="menu-link submenu-toggle">
+                            <i data-lucide="shopping-bag"></i>
+                            <span>Vendas</span>
+                            <i data-lucide="chevron-down" class="chevron"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li class="submenu-item"><a href="#orcamento" class="submenu-link" data-page="orcamento">Orçamento</a></li>
+                            <li class="submenu-item"><a href="#pedido-venda" class="submenu-link" data-page="pedido-venda">Pedido de Venda</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- 5. Financeiro -->
+                    <li class="menu-item has-submenu open">
+                        <a href="#" class="menu-link submenu-toggle active">
+                            <i data-lucide="dollar-sign"></i>
+                            <span>Financeiro</span>
+                            <i data-lucide="chevron-down" class="chevron"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li class="submenu-item has-submenu open">
+                                <a href="#" class="submenu-link submenu-toggle active">
+                                    <span>Cadastros</span>
+                                    <i data-lucide="chevron-down" class="chevron"></i>
+                                </a>
+                                <ul class="submenu nested">
+                                    <li class="submenu-item"><a href="#categoria-financeira" class="submenu-link" data-page="categoria-financeira">Categoria Financeira</a></li>
+                                    <li class="submenu-item"><a href="conta-financeira.html" class="submenu-link active" data-page="conta-financeira">Conta Financeira</a></li>
+                                    <li class="submenu-item"><a href="forma-pagamento.html" class="submenu-link" data-page="forma-pagamento">Forma de Pagamento</a></li>
+                                </ul>
+                            </li>
+                            <li class="submenu-item"><a href="contas-receber.html" class="submenu-link" data-page="contas-receber">Contas a Receber</a></li>
+                            <li class="submenu-item"><a href="contas-pagar.html" class="submenu-link" data-page="contas-pagar">Contas a Pagar</a></li>
+                            <li class="submenu-item"><a href="movimento.html" class="submenu-link" data-page="movimento">Movimento Financeiro</a></li>
+                            <li class="submenu-item"><a href="#fluxo-caixa" class="submenu-link" data-page="fluxo-caixa">Fluxo de Caixa</a></li>
+                            <li class="submenu-item"><a href="#metas" class="submenu-link" data-page="metas">Metas</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <header class="header">
+                 <div class="header-left inline-form-container">
+                    <h2>Contas Financeiras</h2>
+                    <form id="form-conta" class="inline-form" style="margin-top: 0.5rem;">
+                        <input type="text" id="input-nome-conta" placeholder="Digite o nome da conta" required>
+                        <button type="submit" class="btn-salvar-conta">Salvar</button>
+                    </form>
+                </div>
+                <div class="header-tools">
+                    <button class="btn-notification">
+                        <i data-lucide="bell" fill="currentColor" style="color:white; width: 22px; height: 22px;"></i>
+                    </button>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <div class="card table-card">
+                    <div class="table-responsive">
+                        <table class="data-table" id="tabela-contas">
+                            <thead>
+                                <tr>
+                                    <th>Nome da Conta</th>
+                                    <th>Banco</th>
+                                    <th class="text-center">Boleto</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Preenchido dinamicamente via JS e api /contas -->
+                            </tbody>
+                        </table>
+                        <div id="loading-message" class="loading-state">
+                            <i data-lucide="loader-2" class="spin-icon"></i> Carregando contas...
+                        </div>
+                        <div id="error-message" class="error-state" style="display: none;">
+                            <i data-lucide="alert-circle"></i> Não foi possível carregar as contas.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- JS -->
+    <script src="js/dashboard.js"></script>
+    <script src="js/conta-financeira.js"></script>
+</body>
+</html>

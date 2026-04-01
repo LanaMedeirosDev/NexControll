@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import nexcontrol.com.br.api.financeiro.cadastros.contasFinanceiras.Contas;
 
 @Table(name = "pagamento")
-@Entity(name = "Pagamento")
+@Entity(name = "pagamento")
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")

@@ -13,4 +13,10 @@ public interface ReceitasRepository extends JpaRepository<Receitas, Long>{
             LocalDate fim);
 
     List<Receitas> findByStatusReceita(StatusReceita statusReceita);
+
+    List<Receitas> findByStatusReceitaAndDataRecebimentoBetween(
+            StatusReceita status,
+            LocalDate inicio,
+            LocalDate fim
+    );
 }

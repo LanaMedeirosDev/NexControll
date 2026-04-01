@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexControll - Sidebar Menu</title>
+    <!-- Fontes do Google (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- CSS Puro Personalizado -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Biblioteca Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+<div class="app-container">
+    <!-- Menu Lateral (Sidebar) -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <!-- Ícone simulando o Logo -->
+            <div class="logo-icon"></div>
+            <h1 class="logo-text">NexControll</h1>
+        </div>
+
+        <nav class="sidebar-nav">
+            <ul class="menu-list" id="main-menu">
+                <!-- 1. Dashboard -->
+                <li class="menu-item">
+                    <a href="#dashboard" class="menu-link active" data-page="dashboard">
+                        <i data-lucide="layout-dashboard"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+                <!-- 2. Cadastros -->
+                <li class="menu-item has-submenu">
+                    <a href="#" class="menu-link submenu-toggle">
+                        <i data-lucide="clipboard-list"></i>
+                        <span>Cadastros</span>
+                        <i data-lucide="chevron-down" class="chevron"></i>
+                    </a>
+                    <ul class="submenu">
+                        <li class="submenu-item"><a href="clientes.html" class="submenu-link" data-page="cliente-fornecedor">Cliente e Fornecedor</a></li>
+                        <li class="submenu-item"><a href="produtos.html" class="submenu-link" data-page="produtos">Produtos</a></li>
+                    </ul>
+                </li>
+
+                <!-- 3. Estoque -->
+                <li class="menu-item has-submenu">
+                    <a href="#" class="menu-link submenu-toggle">
+                        <i data-lucide="box"></i>
+                        <span>Estoque</span>
+                        <i data-lucide="chevron-down" class="chevron"></i>
+                    </a>
+                    <ul class="submenu">
+                        <li class="submenu-item"><a href="#compras" class="submenu-link" data-page="compras">Compras</a></li>
+                        <li class="submenu-item"><a href="#inventario" class="submenu-link" data-page="inventario">Inventário de Estoque</a></li>
+                        <li class="submenu-item"><a href="#producao" class="submenu-link" data-page="producao">Produção de Item</a></li>
+                    </ul>
+                </li>
+
+                <!-- 4. Vendas -->
+                <li class="menu-item has-submenu">
+                    <a href="#" class="menu-link submenu-toggle">
+                        <i data-lucide="shopping-bag"></i>
+                        <span>Vendas</span>
+                        <i data-lucide="chevron-down" class="chevron"></i>
+                    </a>
+                    <ul class="submenu">
+                        <li class="submenu-item"><a href="#orcamento" class="submenu-link" data-page="orcamento">Orçamento</a></li>
+                        <li class="submenu-item"><a href="#pedido-venda" class="submenu-link" data-page="pedido-venda">Pedido de Venda</a></li>
+                    </ul>
+                </li>
+
+                <!-- 5. Financeiro -->
+                <li class="menu-item has-submenu">
+                    <a href="#" class="menu-link submenu-toggle">
+                        <i data-lucide="dollar-sign"></i>
+                        <span>Financeiro</span>
+                        <i data-lucide="chevron-down" class="chevron"></i>
+                    </a>
+                    <ul class="submenu">
+                        <!-- Nested Submenu de Cadastros dentro de Financeiro -->
+                        <li class="submenu-item has-submenu">
+                            <a href="#" class="submenu-link submenu-toggle">
+                                <span>Cadastros</span>
+                                <i data-lucide="chevron-down" class="chevron"></i>
+                            </a>
+                            <ul class="submenu nested">
+                                <li class="submenu-item"><a href="#categoria-financeira" class="submenu-link" data-page="categoria-financeira">Categoria Financeira</a></li>
+                                <li class="submenu-item"><a href="conta-financeira.html" class="submenu-link" data-page="conta-financeira">Conta Financeira</a></li>
+                                <li class="submenu-item"><a href="forma-pagamento.html" class="submenu-link" data-page="forma-pagamento">Forma de Pagamento</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu-item"><a href="contas-receber.html" class="submenu-link" data-page="contas-receber">Contas a Receber</a></li>
+                        <li class="submenu-item"><a href="contas-pagar.html" class="submenu-link" data-page="contas-pagar">Contas a Pagar</a></li>
+                        <li class="submenu-item"><a href="movimento.html" class="submenu-link" data-page="movimento">Movimento Financeiro</a></li>
+                        <li class="submenu-item"><a href="#fluxo-caixa" class="submenu-link" data-page="fluxo-caixa">Fluxo de Caixa</a></li>
+                        <li class="submenu-item"><a href="#metas" class="submenu-link" data-page="metas">Metas</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Área Principal de Conteúdo -->
+    <main class="main-content">
+        <header class="header">
+            <h2>Hello Lana</h2>
+            <p>Welcome back!</p>
+        </header>
+        <div class="content-area">
+            <h3 id="current-page-title">Dashboard</h3>
+            <p style="color: var(--text-muted); margin-top: 10px;">
+                Sua tela correspondente será renderizada aqui via Backend ou JS ao redirecionar.
+            </p>
+        </div>
+    </main>
+</div>
+
+<!-- Script Principal -->
+<script src="js/main.js"></script>
+</body>
+</html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexControll - Dashboard View</title>
+    <!-- Fontes do Google (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- CSS Específico do Dashboard -->
+    <link rel="stylesheet" href="css/dashboard.css">
+    <!-- Biblioteca Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Header section -->
+            <header class="header">
+                <div class="header-left">
+                    <h2>Hello Lana</h2>
+                    <p>Welcome back!</p>
+                </div>
+                <div class="header-right">
+                    <div class="search-box">
+                        <i data-lucide="search" class="icon"></i>
+                        <input type="text" placeholder="Search">
+                    </div>
+                    <button class="btn-notification">
+                        <i data-lucide="bell" fill="currentColor"></i>
+                    </button>
+                    <div class="add-task">
+                        <input type="text" placeholder="Add a new task">
+                        <button class="btn-add">
+                            <i data-lucide="plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Grid Container -->
+            <div class="dashboard-grid">
+                <!-- Left Column -->
+                <div class="grid-left">
+                    <!-- Stats Cards -->
+                    <div class="stats-row">
+                        <div class="stat-card gradient-card">
+                            <div class="stat-info">
+                                <h3>50+</h3>
+                                <p>Project</p>
+                            </div>
+                            <div class="stat-chart">
+                                <div class="bar" style="height: 30%"></div>
+                                <div class="bar" style="height: 50%"></div>
+                                <div class="bar" style="height: 20%"></div>
+                                <div class="bar" style="height: 70%"></div>
+                            </div>
+                        </div>
+                        <div class="stat-card gradient-card">
+                            <div class="stat-info">
+                                <h3>45</h3>
+                                <p>Client</p>
+                            </div>
+                            <div class="stat-chart">
+                                <div class="bar" style="height: 40%"></div>
+                                <div class="bar" style="height: 60%"></div>
+                                <div class="bar" style="height: 80%"></div>
+                                <div class="bar" style="height: 30%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Line Chart Area -->
+                    <div class="chart-card card">
+                        <div class="chart-header">
+                            <div class="legend">
+                                <span class="legend-item"><span class="dot income"></span> Income</span>
+                                <span class="legend-item"><span class="dot prev-week"></span> Previous week</span>
+                            </div>
+                            <button class="date-picker">
+                                <i data-lucide="calendar"></i> 11 February 2026
+                            </button>
+                        </div>
+                        <div class="chart-body">
+                             <!-- SVG Line chart for pure visual mirroring -->
+                             <svg viewBox="0 0 1000 200" preserveAspectRatio="none" class="chart-svg">
+                              <line x1="0" y1="0" x2="1000" y2="0" class="grid-line" />
+                              <line x1="0" y1="50" x2="1000" y2="50" class="grid-line" />
+                              <line x1="0" y1="100" x2="1000" y2="100" class="grid-line" />
+                              <line x1="0" y1="150" x2="1000" y2="150" class="grid-line" />
+                              
+                              <text x="0" y="5" class="chart-text">25</text>
+                              <text x="0" y="55" class="chart-text">20</text>
+                              <text x="0" y="105" class="chart-text">15</text>
+                              <text x="0" y="155" class="chart-text">10</text>
+                              <text x="0" y="195" class="chart-text">00</text>
+
+                              <!-- Pink line (Previous week) -->
+                              <path d="M40 120 C140 120, 190 70, 240 100 C290 130, 340 90, 440 90 C540 90, 590 40, 640 60 C690 80, 740 130, 840 100 C940 70, 970 120, 1000 110" fill="none" stroke="#fb91cb" stroke-width="3" />
+                              <path d="M40 120 C140 120, 190 70, 240 100 C290 130, 340 90, 440 90 C540 90, 590 40, 640 60 C690 80, 740 130, 840 100 C940 70, 970 120, 1000 110 V200 H40 Z" fill="url(#gradPink)" opacity="0.2"/>
+                              
+                              <!-- Purple line (Income) -->
+                              <path d="M40 140 C140 140, 220 80, 290 130 C360 180, 440 110, 520 150 C600 190, 640 80, 700 110 C760 140, 840 150, 920 90 C970 30, 990 140, 1000 140" fill="none" stroke="#c882f8" stroke-width="3" />
+                              <path d="M40 140 C140 140, 220 80, 290 130 C360 180, 440 110, 520 150 C600 190, 640 80, 700 110 C760 140, 840 150, 920 90 C970 30, 990 140, 1000 140 V200 H40 Z" fill="url(#gradPurple)" opacity="0.3"/>
+
+                              <defs>
+                                  <linearGradient id="gradPink" x1="0" y1="0" x2="0" y2="1">
+                                      <stop offset="0%" stop-color="#fb91cb" stop-opacity="1"/>
+                                      <stop offset="100%" stop-color="#fb91cb" stop-opacity="0"/>
+                                  </linearGradient>
+                                  <linearGradient id="gradPurple" x1="0" y1="0" x2="0" y2="1">
+                                      <stop offset="0%" stop-color="#c882f8" stop-opacity="1"/>
+                                      <stop offset="100%" stop-color="#c882f8" stop-opacity="0"/>
+                                  </linearGradient>
+                              </defs>
+                           </svg>
+                        </div>
+                        <div class="chart-labels">
+                            <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activities -->
+                    <div class="activities-card card">
+                        <h3>Recent Activities</h3>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i data-lucide="play" fill="currentColor"></i>
+                                </div>
+                                <div class="activity-name">UI/UX Design</div>
+                                <div class="activity-time">10:42:23 AM</div>
+                                <div class="activity-amount">+1545.00</div>
+                                <div class="activity-status">Completed</div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i data-lucide="play" fill="currentColor"></i>
+                                </div>
+                                <div class="activity-name">Marketing Ads</div>
+                                <div class="activity-time">09:21:45 AM</div>
+                                <div class="activity-amount">+1445.00</div>
+                                <div class="activity-status">Completed</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="grid-right">
+                    <!-- Overall Progress -->
+                    <div class="progress-card card">
+                        <h3>Overall Progress</h3>
+                        <div class="progress-circle-container">
+                            <div class="progress-blob blob-1"></div>
+                            <div class="progress-blob blob-2"></div>
+                            <div class="progress-inner">
+                                <h4>89%</h4>
+                                <p>Progress</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Calendar -->
+                    <div class="calendar-card card">
+                        <div class="calendar-header">
+                            <div>
+                                <h3>Project Time</h3>
+                                <p>Feb, 11 Monday</p>
+                            </div>
+                            <div class="calendar-nav">
+                                <button><i data-lucide="chevron-left"></i></button>
+                                <button><i data-lucide="chevron-right"></i></button>
+                            </div>
+                        </div>
+                        <div class="calendar-grid">
+                            <div class="day-name">S</div><div class="day-name">M</div><div class="day-name">T</div>
+                            <div class="day-name">W</div><div class="day-name">T</div><div class="day-name">F</div><div class="day-name">S</div>
+                            
+                            <div class="day empty"></div><div class="day empty"></div><div class="day empty"></div>
+                            <div class="day empty"></div><div class="day empty"></div><div class="day">1</div><div class="day">2</div>
+                            
+                            <div class="day">3</div><div class="day">4</div><div class="day">5</div>
+                            <div class="day">6</div><div class="day">7</div><div class="day">8</div><div class="day">9</div>
+                            
+                            <div class="day">10</div><div class="day active">11</div><div class="day highlight">12</div>
+                            <div class="day highlight">13</div><div class="day highlight">14</div><div class="day highlight">15</div>
+                            <div class="day">16</div>
+                            
+                            <div class="day">17</div><div class="day">18</div><div class="day">19</div>
+                            <div class="day">20</div><div class="day">21</div><div class="day">22</div><div class="day">23</div>
+                        </div>
+                    </div>
+
+                    <!-- Messages -->
+                    <div class="messages-card card">
+                        <h3>Message</h3>
+                        <div class="message-list">
+                            <div class="message-item">
+                                <img src="https://i.pravatar.cc/150?u=davis" alt="Davis Vaccaro" class="avatar">
+                                <div class="msg-info">
+                                    <h4>Davis Vaccaro</h4>
+                                    <p>Do you need that design?</p>
+                                </div>
+                            </div>
+                            <div class="message-item">
+                                <img src="https://i.pravatar.cc/150?u=lydia" alt="Lydia Liphutz" class="avatar">
+                                <div class="msg-info">
+                                    <h4>Lydia Liphutz</h4>
+                                    <p>Hello Lana, how are you?</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Render Icons -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>

@@ -16,12 +16,5 @@ public record DadosCadastroUsuario(
         String email,
 
         @NotBlank
-        String senha,
-
-        @Pattern(regexp = "\\d{9,17}")
-        String celularDoUsuario,
-
-        @NotNull
-        @Valid
-        dadosDoEnderecoUsuario enderecoUsuario) {
+        String senha ) {
 }

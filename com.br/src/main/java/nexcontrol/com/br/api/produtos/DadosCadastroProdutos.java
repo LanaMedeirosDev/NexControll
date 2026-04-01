@@ -4,6 +4,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
+import java.math.BigDecimal;
+
 public record DadosCadastroProdutos(
 
        @NotBlank
@@ -13,10 +15,10 @@ public record DadosCadastroProdutos(
         @Pattern(regexp = "\\d{8}")
         String ncm,
 
-        @NotBlank
-        String valorDeVenda,
+        @NotNull
+       BigDecimal valorDeVenda,
 
-        String valorDeCusto,
+        BigDecimal valorDeCusto,
 
         @NotNull
         ProdutoServico tipoDeCadastroProduto,

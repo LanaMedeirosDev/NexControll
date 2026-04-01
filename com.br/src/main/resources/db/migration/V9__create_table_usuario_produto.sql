@@ -4,9 +4,10 @@ create table usuario_produto (
     produto_id bigint not null,
     data_cadastro date not null,
     ativo boolean not null,
+
     constraint fk_usuario_produto_usuario
         foreign key (usuario_id)
-        references usuario(id),
+        references usuarios(id),
 
     constraint fk_usuario_produto_produto
         foreign key (produto_id)

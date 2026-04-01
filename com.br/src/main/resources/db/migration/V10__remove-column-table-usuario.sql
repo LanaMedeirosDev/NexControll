@@ -1,0 +1,9 @@
+alter table usuarios
+        DROP COLUMN celularDoUsuario,
+        DROP COLUMN logradouroUsuario,
+        DROP COLUMN bairroUsuario,
+        DROP COLUMN cepUsuario,
+        DROP COLUMN complementoUsuario,
+        DROP COLUMN numeroUsuario,
+        DROP COLUMN ufUsuario,
+        DROP COLUMN cidadeUsuario;

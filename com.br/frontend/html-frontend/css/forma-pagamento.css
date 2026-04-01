@@ -1,0 +1,170 @@
+/* ----- forma-pagamento.css ----- */
+
+/* Container e Formulário Inline no header */
+.inline-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.inline-form {
+    display: flex;
+    align-items: flex-end; /* Alinha o botão na base do input ao lado dos lables */
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.inline-form input,
+.inline-form select {
+    background-color: var(--bg-card); /* Fundo escuro */
+    border: 1px solid var(--accent-color); /* Borda roxa padrão */
+    color: var(--text-main); /* Texto branco */
+    padding: 0 1rem;
+    height: 42px; /* Mesma altura para input, select e button */
+    border-radius: 12px;
+    font-size: 0.95rem;
+    width: 250px;
+    outline: none;
+    transition: all var(--transition-speed) ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Opções do Select para ficarem bonitas em Dark Mode */
+.inline-form select {
+    cursor: pointer;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23c882f8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 16px;
+    padding-right: 2.5rem;
+}
+
+.inline-form select option {
+    background-color: var(--bg-card);
+    color: var(--text-main);
+}
+
+.inline-form input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.inline-form input:focus,
+.inline-form select:focus {
+    border-color: var(--accent-alt); /* Roxo claro/rosa do alert focus */
+    box-shadow: 0 0 0 3px rgba(200, 130, 248, 0.25);
+}
+
+.form-button-container {
+    padding-bottom: 0;
+    display: flex;
+    align-items: flex-end;
+}
+
+.btn-salvar-pagamento {
+    background-color: var(--accent-color); /* Roxo */
+    color: white; 
+    border: none;
+    padding: 0 1.5rem;
+    height: 42px; 
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0px; /* Alinhar com inputs com label */
+}
+
+.btn-salvar-pagamento:hover {
+    background-color: #d195fb; /* Roxo mais claro */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(200, 130, 248, 0.3);
+}
+
+.btn-salvar-pagamento:disabled {
+    background-color: rgba(200, 130, 248, 0.6);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Tabela (Dark Mode theme, Idêntica à tela de conta) */
+.table-card {
+    padding: 0;
+    overflow: hidden;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--text-main);
+}
+
+.data-table th, .data-table td {
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(139, 138, 155, 0.15); /* Leve contraste */
+}
+
+.data-table th {
+    background-color: rgba(30, 28, 42, 0.7);
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.data-table tbody tr {
+    transition: background-color 0.2s;
+}
+
+.data-table tbody tr:hover {
+    background-color: rgba(30, 28, 42, 0.5);
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+/* Estados de Carregamento e Erro */
+.loading-state, .error-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 3rem;
+    color: var(--text-muted);
+}
+
+.error-state {
+    color: #ef4444; /* Vermelho/alerta padrão amigável */
+}
+
+.spin-icon {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}

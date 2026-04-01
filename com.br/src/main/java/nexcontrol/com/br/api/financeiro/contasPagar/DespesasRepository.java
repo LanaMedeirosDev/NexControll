@@ -11,4 +11,10 @@ public interface DespesasRepository extends JpaRepository<Despesas, Long>{
             LocalDate fim);
 
     List<Despesas> findByStatusDespesa(StatusDespesa statusDespesa);
+
+    List<Despesas> findByStatusDespesaAndDataPagamentoBetween(
+            StatusDespesa status,
+            LocalDate inicio,
+            LocalDate fim
+    );
 }

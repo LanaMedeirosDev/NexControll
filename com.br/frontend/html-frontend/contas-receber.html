@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexControll - Contas a Receber</title>
+    <!-- Fontes do Google (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- CSS Unificado (Sidebar + Dashboard Base) -->
+    <link rel="stylesheet" href="css/dashboard.css">
+    <!-- CSS Específico da Tabela -->
+    <link rel="stylesheet" href="css/contas-receber.css">
+    <!-- Biblioteca Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="app-container">
+        
+        <!-- ==============================
+             SIDEBAR (Menu Lateral)
+             ============================== -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <!-- Ícone simulando o Logo -->
+                <div class="logo-icon"></div>
+                <h1 class="logo-text">NexControll</h1>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul class="menu-list" id="main-menu">
+                    <!-- 1. Dashboard -->
+                    <li class="menu-item">
+                        <a href="dashboard.html" class="menu-link" data-page="dashboard">
+                            <i data-lucide="layout-dashboard"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+
+                    <!-- 2. Cadastros -->
+                    <li class="menu-item has-submenu">
+                        <a href="#" class="menu-link submenu-toggle">
+                            <i data-lucide="clipboard-list"></i>
+                            <span>Cadastros</span>
+                            <i data-lucide="chevron-down" class="chevron"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li class="submenu-item"><a href="clientes.html" class="submenu-link" data-page="cliente-fornecedor">Cliente e Fornecedor</a></li>
+                            <li class="submenu-item"><a href="produtos.html" class="submenu-link" data-page="produtos">Produtos</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- 3. Estoque -->
+                    <li class="menu-item has-submenu">
+                        <a href="#" class="menu-link submenu-toggle">
+                            <i data-lucide="box"></i>
+                            <span>Estoque</span>
+                            <i data-lucide="chevron-down" class="chevron"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li class="submenu-item"><a href="#compras" class="submenu-link" data-page="compras">Compras</a></li>
+                            <li class="submenu-item"><a href="#inventario" class="submenu-link" data-page="inventario">Inventário de Estoque</a></li>
+                            <li class="submenu-item"><a href="#producao" class="submenu-link" data-page="producao">Produção de Item</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- 4. Vendas -->
+                    <li class="menu-item has-submenu">
+                        <a href="#" class="menu-link submenu-toggle">
+                            <i data-lucide="shopping-bag"></i>
+                            <span>Vendas</span>
+                            <i data-lucide="chevron-down" class="chevron"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li class="submenu-item"><a href="#orcamento" class="submenu-link" data-page="orcamento">Orçamento</a></li>
+                            <li class="submenu-item"><a href="#pedido-venda" class="submenu-link" data-page="pedido-venda">Pedido de Venda</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- 5. Financeiro -->
+                    <li class="menu-item has-submenu open">
+                        <a href="#" class="menu-link submenu-toggle">
+                            <i data-lucide="dollar-sign"></i>
+                            <span>Financeiro</span>
+                            <i data-lucide="chevron-down" class="chevron"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li class="submenu-item has-submenu">
+                                <a href="#" class="submenu-link submenu-toggle">
+                                    <span>Cadastros</span>
+                                    <i data-lucide="chevron-down" class="chevron"></i>
+                                </a>
+                                <ul class="submenu nested">
+                                    <li class="submenu-item"><a href="#categoria-financeira" class="submenu-link" data-page="categoria-financeira">Categoria Financeira</a></li>
+                                    <li class="submenu-item"><a href="conta-financeira.html" class="submenu-link" data-page="conta-financeira">Conta Financeira</a></li>
+                                    <li class="submenu-item"><a href="forma-pagamento.html" class="submenu-link" data-page="forma-pagamento">Forma de Pagamento</a></li>
+                                </ul>
+                            </li>
+                            <li class="submenu-item"><a href="#contas-receber" class="submenu-link active" data-page="contas-receber">Contas a Receber</a></li>
+                            <li class="submenu-item"><a href="contas-pagar.html" class="submenu-link" data-page="contas-pagar">Contas a Pagar</a></li>
+                            <li class="submenu-item"><a href="movimento.html" class="submenu-link" data-page="movimento">Movimento Financeiro</a></li>
+                            <li class="submenu-item"><a href="#fluxo-caixa" class="submenu-link" data-page="fluxo-caixa">Fluxo de Caixa</a></li>
+                            <li class="submenu-item"><a href="#metas" class="submenu-link" data-page="metas">Metas</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- ==============================
+             MAIN CONTENT (Contas a Receber)
+             ============================== -->
+        <main class="main-content">
+            <!-- Header section -->
+            <header class="header">
+                <div class="header-left">
+                    <h2>Contas a Receber</h2>
+                    <p>Gerencie suas receitas e cobranças</p>
+                </div>
+                <div class="header-right" style="align-items: flex-end;">
+                    <!-- Date Filter like in Movimento Financeiro -->
+                    <div class="date-filter-container" style="display: flex; gap: 1rem;">
+                        <div class="form-group" style="display: flex; flex-direction: column; gap: 0.4rem;">
+                            <label for="dataInicio" style="font-size: 0.85rem; color: var(--text-muted); font-weight: 500;">Data inicial *</label>
+                            <input type="date" id="dataInicio" class="date-input" required>
+                        </div>
+                        <div class="form-group" style="display: flex; flex-direction: column; gap: 0.4rem;">
+                            <label for="dataFim" style="font-size: 0.85rem; color: var(--text-muted); font-weight: 500;">Data final *</label>
+                            <input type="date" id="dataFim" class="date-input" required>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 1.5rem; height: 42px;">
+                        <div class="search-box">
+                            <i data-lucide="search" class="icon"></i>
+                            <input type="text" placeholder="Busca">
+                        </div>
+                        <button class="btn-notification">
+                            <i data-lucide="bell" fill="currentColor" style="color:white; width: 22px; height: 22px;"></i>
+                        </button>
+                        <!-- Customize button format for this specific screen -->
+                        <button class="btn-add custom-btn-add" id="btn-nova-conta">
+                            <i data-lucide="plus"></i> <span style="font-weight: 500; font-size: 0.9rem;">Nova Conta</span>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <!-- Resumo em 4 Cards -->
+                <div class="stats-row-4">
+                    <div class="stat-card gradient-card">
+                        <div class="stat-info">
+                            <h3 id="resumo-total">R$ 0,00</h3>
+                            <p>Total a Receber</p>
+                        </div>
+                    </div>
+                    <div class="stat-card gradient-card bg-green-grad">
+                        <div class="stat-info">
+                            <h3 id="resumo-recebido">R$ 0,00</h3>
+                            <p>Recebido</p>
+                        </div>
+                    </div>
+                    <div class="stat-card gradient-card bg-yellow-grad">
+                        <div class="stat-info">
+                            <h3 id="resumo-pendente">R$ 0,00</h3>
+                            <p>Pendente</p>
+                        </div>
+                    </div>
+                    <div class="stat-card gradient-card bg-red-grad">
+                        <div class="stat-info">
+                            <h3 id="resumo-atrasado">R$ 0,00</h3>
+                            <p>Atrasado</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gráficos -->
+                <div class="charts-row">
+                    <!-- Gráfico de Fluxo -->
+                    <div class="chart-card card">
+                        <div class="chart-header" style="margin-bottom: 1rem;">
+                            <h3 style="font-size: 1.1rem; margin-bottom: 0;">Fluxo de Receitas</h3>
+                            <div class="legend">
+                                <span class="legend-item"><span class="dot income"></span> Atual</span>
+                                <span class="legend-item"><span class="dot prev-week"></span> Anterior</span>
+                            </div>
+                        </div>
+                        <div class="chart-body" style="height: 180px;">
+                             <!-- SVG Line chart espelhando o visual original -->
+                             <svg viewBox="0 0 1000 200" preserveAspectRatio="none" class="chart-svg">
+                              <line x1="0" y1="0" x2="1000" y2="0" class="grid-line" />
+                              <line x1="0" y1="50" x2="1000" y2="50" class="grid-line" />
+                              <line x1="0" y1="100" x2="1000" y2="100" class="grid-line" />
+                              <line x1="0" y1="150" x2="1000" y2="150" class="grid-line" />
+                              
+                              <path d="M40 120 C140 120, 190 70, 240 100 C290 130, 340 90, 440 90 C540 90, 590 40, 640 60 C690 80, 740 130, 840 100 C940 70, 970 120, 1000 110" fill="none" stroke="#fb91cb" stroke-width="3" />
+                              <path d="M40 140 C140 140, 220 80, 290 130 C360 180, 440 110, 520 150 C600 190, 640 80, 700 110 C760 140, 840 150, 920 90 C970 30, 990 140, 1000 140" fill="none" stroke="#c882f8" stroke-width="3" />
+                           </svg>
+                        </div>
+                    </div>
+
+                    <!-- Gráfico Progress % -->
+                    <div class="progress-card card">
+                        <h3 style="font-size: 1.1rem; z-index: 5;">Recebimentos %</h3>
+                        <div class="progress-circle-container" style="margin-top: 1rem;">
+                            <div class="progress-blob blob-1"></div>
+                            <div class="progress-blob blob-2"></div>
+                            <div class="progress-inner">
+                                <h4 id="chart-percent">68%</h4>
+                                <p>Concluído</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card table-card">
+                    <div class="card-header">
+                        <h3>Lista de Receitas</h3>
+                        <div class="filters">
+                            <select class="filter-select">
+                                <option>Todos os status</option>
+                                <option>Pendente</option>
+                                <option>Recebido</option>
+                                <option>Atrasado</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table class="data-table" id="tabela-receitas">
+                            <thead>
+                                <tr>
+                                    <th>Descrição</th>
+                                    <th>Valor (R$)</th>
+                                    <th>Vencimento</th>
+                                    <th>Status</th>
+                                    <th class="actions-col">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Preenchido pelo JS -->
+                            </tbody>
+                        </table>
+                        <div id="loading-message" class="loading-state">
+                            <i data-lucide="loader-2" class="spin-icon"></i> Carregando dados...
+                        </div>
+                        <div id="error-message" class="error-state" style="display: none;">
+                            <i data-lucide="alert-circle"></i> Erro ao carregar dados da API.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- JS Unificado -->
+    <script src="js/dashboard.js"></script>
+    <script src="js/contas-receber.js"></script>
+</body>
+</html>

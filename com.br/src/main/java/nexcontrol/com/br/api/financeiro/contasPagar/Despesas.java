@@ -69,6 +69,7 @@ public class Despesas {
         this.cliente = cliente;
     }
 
+    //Essa parte seria para a atualização dos dados do cliente no lançamento da despesa se necessário
     public void atualizar(DadosAtualizacaoDespesas dados, Clientes cliente) {
         if (dados.descricaoDespesa() != null) {
             this.descricaoDespesa = dados.descricaoDespesa();
@@ -84,6 +85,7 @@ public class Despesas {
         }
     }
 
+    //Para atualizar as informações cadastrais das despesas, e mantém os dados sendo os mesmos do antigo se não houver alteração
     public void atualizarInformacoes(@Valid DadosAtualizacaoDespesas dados) {
         if (dados.descricaoDespesa() != null) {
             this.descricaoDespesa = dados.descricaoDespesa();
@@ -99,11 +101,13 @@ public class Despesas {
         }
     }
 
+    //Para o usuário poder alterar para paga a receita e atualiza a data de pagamento
     public void pagar(LocalDate dataPagamento) {
         this.dataPagamento = dataPagamento;
         this.statusDespesa = StatusDespesa.PAGA;
     }
 
+    //Se venceu fica atrasada automaticamente
     public void verificarAtraso() {
         if (this.statusDespesa == StatusDespesa.PREVISTA &&
                 this.dataVencimentoDespesa.isBefore(LocalDate.now())) {

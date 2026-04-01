@@ -1,0 +1,240 @@
+/* ----- contas-receber.css: Estilos específicos da tela de Contas a Receber ----- */
+
+.content-area {
+    margin-top: 1rem;
+}
+
+/* Nova estrutura de Cards Resumo para igualar a imagem de Referência */
+.stats-row-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.bg-green-grad { background: linear-gradient(135deg, #40DECF 0%, #2fbdb0 100%); }
+.bg-yellow-grad { background: linear-gradient(135deg, #4BA0DB 0%, #3a7fb0 100%); }
+.bg-red-grad { background: linear-gradient(135deg, #ED5F5F 0%, #c94f4f 100%); }
+
+/* Grid para Gráficos acima da Tabela */
+.charts-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Garante que os containers tenham o mesmo padding interno */
+.charts-row .card {
+    height: 100%;
+}
+
+.table-card {
+    padding: 1.5rem 2rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 500px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.card-header h3 {
+    font-size: 1.35rem;
+    font-weight: 600;
+}
+
+.filter-select {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    border: 1px solid rgba(139, 138, 155, 0.3);
+    padding: 0.6rem 1.2rem;
+    border-radius: 12px;
+    outline: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%238b8a9b%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+}
+
+.filter-select:hover {
+    border-color: var(--accent-color);
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.data-table th, .data-table td {
+    padding: 1.2rem 1rem;
+    border-bottom: 1px solid rgba(139, 138, 155, 0.1);
+}
+
+.data-table th {
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.data-table td {
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+.data-table tbody tr {
+    transition: background-color 0.2s, transform 0.2s;
+    border-radius: 8px;
+}
+
+.data-table tbody tr:hover {
+    background-color: rgba(30, 28, 42, 0.5);
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-pendente {
+    background-color: rgba(75, 160, 219, 0.15);
+    color: #4BA0DB;
+}
+
+.status-recebido {
+    background-color: rgba(64, 222, 207, 0.15);
+    color: #40DECF;
+}
+
+.status-atrasado {
+    background-color: rgba(237, 95, 95, 0.15);
+    color: #ED5F5F;
+}
+
+/* Actions Row */
+.actions-col {
+    text-align: right;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    border-radius: 8px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.btn-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.btn-icon:hover {
+    background-color: var(--bg-dark);
+}
+
+.btn-receive:hover {
+    color: #40DECF;
+}
+
+.btn-edit:hover {
+    color: var(--accent-color);
+}
+
+.btn-delete:hover {
+    color: #ED5F5F;
+}
+
+/* Loading/Error states */
+.loading-state, .error-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 4rem;
+    color: var(--text-muted);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.error-state {
+    color: #ED5F5F;
+}
+
+.spin-icon {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Custom Add Button Adjustment for Text + Icon */
+.custom-btn-add {
+    width: auto !important;
+    padding: 0 1.25rem !important;
+    gap: 0.5rem;
+    white-space: nowrap;
+}
+
+/* Date filter styles (copied from movimento.css) */
+.date-input {
+    background-color: var(--bg-card);
+    border: 1px solid var(--accent-color);
+    color: var(--text-main);
+    padding: 0 1rem;
+    height: 42px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+.date-input::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    opacity: 0.6;
+    cursor: pointer;
+}
+.date-input::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+}
+.date-input:focus {
+    border-color: var(--accent-alt);
+    box-shadow: 0 0 0 3px rgba(200, 130, 248, 0.25);
+}

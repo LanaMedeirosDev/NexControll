@@ -1,0 +1,149 @@
+/* ----- conta-financeira.css ----- */
+
+/* Container e Formulário Inline no header */
+.inline-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem; /* Espaço entre o título e o formulário */
+}
+
+.inline-form {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.inline-form input {
+    background-color: var(--bg-card); /* Fundo escuro */
+    border: 1px solid var(--accent-color); /* Borda roxa padrão (baseada na paleta do app) */
+    color: var(--text-main); /* Texto branco */
+    padding: 0 1rem;
+    height: 42px; /* Input e buttom mesma altura */
+    border-radius: 12px;
+    font-size: 0.95rem;
+    width: 250px;
+    outline: none;
+    transition: all var(--transition-speed) ease;
+}
+
+.inline-form input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.inline-form input:focus {
+    border-color: var(--accent-alt); /* Roxo claro/rosa do alert focus */
+    box-shadow: 0 0 0 3px rgba(200, 130, 248, 0.25);
+}
+
+.btn-salvar-conta {
+    background-color: var(--accent-color); /* Roxo */
+    color: white; 
+    border: none;
+    padding: 0 1.5rem;
+    height: 42px; 
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-salvar-conta:hover {
+    background-color: #d195fb; /* Roxo mais claro */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(200, 130, 248, 0.3);
+}
+
+.btn-salvar-conta:disabled {
+    background-color: rgba(200, 130, 248, 0.6);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Tabela Contas (Dark Mode theme) */
+.table-card {
+    padding: 0;
+    overflow: hidden;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--text-main);
+}
+
+.data-table th, .data-table td {
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(139, 138, 155, 0.15); /* Leve contraste */
+}
+
+.data-table th {
+    background-color: rgba(30, 28, 42, 0.7);
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.data-table tbody tr {
+    transition: background-color 0.2s;
+}
+
+.data-table tbody tr:hover {
+    background-color: rgba(30, 28, 42, 0.5);
+}
+
+/* Checkbox visual para o Boleto */
+.visual-checkbox {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    border: 2px solid var(--accent-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent; /* Ícone oculto por padrão */
+    transition: all 0.2s ease;
+}
+
+.visual-checkbox.checked {
+    background-color: var(--accent-color);
+    color: white; /* Mostra o check icon */
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+/* Estados de Carregamento e Erro */
+.loading-state, .error-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 3rem;
+    color: var(--text-muted);
+}
+
+.error-state {
+    color: #ef4444; /* Vermelho/alerta padrão amigável */
+}
+
+.spin-icon {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}

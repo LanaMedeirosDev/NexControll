@@ -56,7 +56,7 @@ public class Produtos {
     public String getNomeDoProduto(){
         return nomeDoProduto;
     }
-    public String getValorDeVenda(){
+    public BigDecimal getValorDeVenda(){
         return valorDeVenda;
     }
     public String getUnidadeDeMedida(){
@@ -68,7 +68,7 @@ public class Produtos {
     public String getNcm() {     //add
         return ncm;
     }
-    public String getValorDeCusto(){
+    public BigDecimal getValorDeCusto(){
         return valorDeCusto;
     }
     public String getCodigoSku(){

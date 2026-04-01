@@ -1,14 +1,12 @@
 package nexcontrol.com.br.api.produtos;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import nexcontrol.com.br.api.usuario.Usuarios;
-import org.springframework.data.annotation.Id;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "usuario_produto")
 public class UsuarioProduto {
 
     @Id
@@ -28,4 +26,7 @@ public class UsuarioProduto {
     private LocalDate dataCadastro;
 
     private Boolean ativo;
+
+    public UsuarioProduto() {
+    }
 }
